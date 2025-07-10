@@ -8,6 +8,7 @@ It features my projects, skills, and a contact form that sends messages directly
 - React + TypeScript
 - Tailwind CSS
 - Vite
+- EmailJS for contact form
 - Deployed on Vercel
 
 ## 📍 Live Demo
