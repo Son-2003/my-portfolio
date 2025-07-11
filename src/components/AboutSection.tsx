@@ -35,7 +35,7 @@ export const AboutSection = () => {
               <Button href="#contact" content="Get In Touch" />
 
               <a
-                href="/public/projects/NguyenDucSon-Resume.pdf"
+                href="/NguyenDucSon-Resume.pdf"
                 download
                 className="text-center px-6 py-2 rounded-full border border-orange-500 text-orange-500 hover:bg-orange-100 duration-300 hover:scale-105 transition-all"
               >
