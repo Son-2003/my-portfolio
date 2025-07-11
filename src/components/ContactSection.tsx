@@ -7,31 +7,34 @@ import {
   Phone,
   Send,
 } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "emailjs-com";
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
-
-    // Simulate sending
-    setTimeout(() => {
-      console.log("Message sent:", { name, email, message });
-
-      // Optional: reset form
-      e.currentTarget.reset();
-      setIsSubmitting(false);
-
-      // TODO: Replace this with a toast notification
-      alert("Message sent!");
-    }, 1500);
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, e.currentTarget, PUBLIC_KEY)
+      .then(() => {
+        alert("Message sent!");
+        formRef.current?.reset();
+      })
+      .catch((error) => {
+        console.error("Failed to send:", error);
+        alert("Failed to send message.");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -117,7 +120,7 @@ export const ContactSection = () => {
               Send a Message
             </h3>
 
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6" ref={formRef} onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
