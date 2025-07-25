@@ -21,7 +21,11 @@ type Meteor = {
   animationDuration: number;
 };
 
-export const StarBackground = () => {
+type StarBackgroundProps = {
+  isDarkMode: boolean;
+};
+
+export const StarBackground = ({ isDarkMode }: StarBackgroundProps) => {
   const [stars, setStars] = useState<Star[]>([]);
   const [meteors, setMeteors] = useState<Meteor[]>([]);
 
@@ -69,7 +73,7 @@ export const StarBackground = () => {
         size: Math.random() * 2 + 1,
         x: Math.random() * 100,
         y: Math.random() * 20,
-        delay: Math.random() * 15,
+        delay: isDarkMode ? 0 : Math.random() * 15,
         animationDuration: Math.random() * 3 + 3,
       });
     }
@@ -78,7 +82,7 @@ export const StarBackground = () => {
   };
 
   return (
-    <div className="fixed overflow-hidden pointer-events-none z-0 border-4 border-amber-300">
+    <div className="fixed overflow-hidden pointer-events-none -z-10 dark:bg-black bg-white w-full h-full">
       {stars.map((star) => (
         <div
           key={star.id}

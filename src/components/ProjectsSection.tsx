@@ -1,5 +1,6 @@
 import { ExternalLink, Github } from "lucide-react";
 import Button from "./Button";
+import { BsAndroid2 } from "react-icons/bs";
 
 const projects = [
   {
@@ -34,16 +35,28 @@ const projects = [
   },
 ];
 
-export const ProjectsSection = () => {
+type ProjectsSectionProps = {
+  isDarkMode: boolean;
+};
+
+export const ProjectsSection = ({ isDarkMode }: ProjectsSectionProps) => {
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+        <h2
+          className={`text-3xl md:text-4xl font-bold mb-4 text-center ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
+        >
           {" "}
           Featured <span className="text-orange-500"> Projects </span>
         </h2>
 
-        <p className="text-center mb-12 max-w-2xl mx-auto">
+        <p
+          className={`text-center mb-12 max-w-2xl mx-auto ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
+        >
           These are some of the projects I’ve enjoyed building — balancing
           functionality, performance, and great UX.
         </p>
@@ -52,7 +65,7 @@ export const ProjectsSection = () => {
           {projects.map((project, key) => (
             <div
               key={key}
-              className="group rounded-lg overflow-hidden shadow-xs transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg"
+              className="flex flex-col w-full h-full bg-white group rounded-lg overflow-hidden shadow-xs transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg"
             >
               <div className="h-48 overflow-hidden">
                 <img
@@ -62,7 +75,7 @@ export const ProjectsSection = () => {
                 />
               </div>
 
-              <div className="p-6">
+              <div className="px-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span className="px-2 py-1 text-xs font-medium border rounded-full">
@@ -72,26 +85,39 @@ export const ProjectsSection = () => {
                 </div>
 
                 <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
-                <p className="text-sm mb-4">
-                  {project.description}
-                </p>
-                <div className="flex justify-between items-center ">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      className="hover:text-orange-500 transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      className="hover:text-orange-500 transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
-                  </div>
-                </div>
+                <p className="text-sm mb-4">{project.description}</p>
+                
               </div>
+
+              <div className="flex space-x-3 mt-auto p-6">
+                  {project.id === 1 ? (
+                    <>
+                      <a
+                        href="/reas-mobile.apk"
+                        download
+                        className="hover:text-orange-500 transition-colors duration-300"
+                      >
+                        <BsAndroid2 size={20} />
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      <a
+                        href={project.demoUrl}
+                        className="hover:text-orange-500 transition-colors duration-300"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    </>
+                  )}
+
+                  <a
+                    href={project.githubUrl}
+                    className="hover:text-orange-500 transition-colors duration-300"
+                  >
+                    <Github size={20} />
+                  </a>
+                </div>
             </div>
           ))}
         </div>

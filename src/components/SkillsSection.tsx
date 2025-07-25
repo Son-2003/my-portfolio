@@ -65,7 +65,11 @@ const skills = [
 
 const categories = ["all", "frontend", "backend", "tools"];
 
-export const SkillsSection = () => {
+type SkillsSectionProps = {
+  isDarkMode: boolean;
+};
+
+export const SkillsSection = ( { isDarkMode } : SkillsSectionProps) => {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const filteredSkills = skills.filter(
@@ -75,7 +79,7 @@ export const SkillsSection = () => {
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-center ${isDarkMode ? "text-white":"text-black"}`}>
           My <span className="text-orange-500"> Skills</span>
         </h2>
 
@@ -85,9 +89,9 @@ export const SkillsSection = () => {
               key={key}
               onClick={() => setActiveCategory(category)}
               className={
-                `px-5 py-2 rounded-full transition-colors duration-300 capitalize ${activeCategory === category
-                  ? "bg-orange-500 text-white"
-                  : "hover:text-white hover:bg-orange-200"}`
+                `px-5 py-2 rounded-full transition-colors duration-300 capitalize ${isDarkMode ? "text-white":"text-black"} ${activeCategory === category
+                  ? `bg-orange-500`
+                  : "hover:bg-orange-300"}`
               }
             >
               {category}
@@ -99,7 +103,7 @@ export const SkillsSection = () => {
           {filteredSkills.map((skill, key) => (
             <div
               key={key}
-              className="p-6 rounded-lg shadow-xs transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg flex items-center justify-center gap-4"
+              className={`${isDarkMode ? "text-white hover:bg-orange-500 duration-300":"text-black"} p-6 rounded-lg shadow-xs transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg flex items-center justify-center gap-4`}
             >
               <div className="text-3xl text-primary">{skill.icon}</div>
               <h3 className="font-semibold text-lg">{skill.name}</h3>

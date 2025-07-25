@@ -14,7 +14,11 @@ const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-export const ContactSection = () => {
+type ContactSectionProps = {
+  isDarkMode: boolean;
+};
+
+export const ContactSection = ( { isDarkMode } : ContactSectionProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
 
@@ -40,18 +44,18 @@ export const ContactSection = () => {
   return (
     <section id="contact" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+        <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-center ${isDarkMode ? "text-white":"text-black"}`}>
           Get In <span className="text-orange-500"> Touch</span>
         </h2>
 
-        <p className="text-center mb-12 max-w-2xl mx-auto">
+        <p className={`text-center mb-12 max-w-2xl mx-auto ${isDarkMode ? "text-white":"text-black"}`}>
           Open to new projects and collaborations — let’s build something great
           together.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-8">
-            <h3 className="text-2xl text-center font-semibold mb-6">
+            <h3 className={`text-2xl text-center font-semibold mb-6 ${isDarkMode ? "text-white":"text-black"}`}>
               {" "}
               Contact Information
             </h3>
@@ -62,10 +66,10 @@ export const ContactSection = () => {
                   <Mail className="h-6 w-6 text-orange-500" />{" "}
                 </div>
                 <div>
-                  <h4 className="font-medium"> Email</h4>
+                  <h4 className={`font-medium ${isDarkMode ? "text-white":"text-black"}`}> Email</h4>
                   <a
                     href="mailto:nguyenducson2915@gmail.com"
-                    className="hover:text-orange-500 transition-colors duration-300"
+                    className={`hover:text-orange-500 transition-colors duration-300 ${isDarkMode ? "text-white":"text-black"}`}
                   >
                     nguyenducson2915@gmail.com
                   </a>
@@ -76,10 +80,10 @@ export const ContactSection = () => {
                   <Phone className="h-6 w-6 text-orange-500" />{" "}
                 </div>
                 <div>
-                  <h4 className="font-medium"> Phone</h4>
+                  <h4 className={`font-medium ${isDarkMode ? "text-white":"text-black"}`}> Phone</h4>
                   <a
                     href="tel:+84975470522"
-                    className="hover:text-orange-500 duration-300 transition-colors"
+                    className={`hover:text-orange-500 duration-300 transition-colors ${isDarkMode ? "text-white":"text-black"}`}
                   >
                     +84 (975) 470-522
                   </a>
@@ -90,8 +94,8 @@ export const ContactSection = () => {
                   <MapPin className="h-6 w-6 text-orange-500" />{" "}
                 </div>
                 <div>
-                  <h4 className="font-medium"> Location</h4>
-                  <a className="hover:text-orange-500 transition-colors duration-300">
+                  <h4 className={`font-medium ${isDarkMode ? "text-white":"text-black"}`}> Location</h4>
+                  <a className={`hover:text-orange-500 transition-colors duration-300 ${isDarkMode ? "text-white":"text-black"}`}>
                     Binh Thanh, HCM, VN
                   </a>
                 </div>
@@ -99,23 +103,23 @@ export const ContactSection = () => {
             </div>
 
             <div className="pt-8">
-              <h4 className="font-medium text-center mb-4"> Connect With Me</h4>
+              <h4 className={`font-medium text-center mb-4 ${isDarkMode ? "text-white":"text-black"}`}> Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
                 <a href="https://www.linkedin.com/in/nducson/">
-                  <Linkedin className="hover:text-orange-500 duration-300" />
+                  <Linkedin className={`hover:text-orange-500 duration-300 ${isDarkMode ? "text-white":"text-black"}`} />
                 </a>
                 <a href="https://www.facebook.com/ucson.885171" target="_blank">
-                  <Facebook className="hover:text-orange-500 duration-300" />
+                  <Facebook className={`hover:text-orange-500 duration-300 ${isDarkMode ? "text-white":"text-black"}`} />
                 </a>
                 <a href="https://www.instagram.com/ducson_279/" target="_blank">
-                  <Instagram className="hover:text-orange-500 duration-300" />
+                  <Instagram className={`hover:text-orange-500 duration-300 ${isDarkMode ? "text-white":"text-black"}`} />
                 </a>
               </div>
             </div>
           </div>
 
-          <div className="bg-card p-8 rounded-lg shadow-xs">
-            <h3 className="text-2xl text-center font-semibold mb-6">
+          <div className="bg-card p-8 rounded-lg shadow-xs bg-white">
+            <h3 className={`text-2xl text-center font-semibold mb-6 text-black`}>
               {" "}
               Send a Message
             </h3>
@@ -124,7 +128,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium mb-2"
+                  className={`block text-sm font-medium mb-2 text-black`}
                 >
                   {" "}
                   Your Name
@@ -142,7 +146,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium mb-2"
+                  className={`block text-sm font-medium mb-2 text-black`}
                 >
                   {" "}
                   Your Email
@@ -160,7 +164,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className={`block text-sm font-medium mb-2 text-black`}
                 >
                   {" "}
                   Your Message

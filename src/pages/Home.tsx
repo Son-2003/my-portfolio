@@ -39,19 +39,19 @@ export const Home = () => {
       {/* Navbar */}
       <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
-      {isDarkMode && <StarBackground />}
+      {isDarkMode && <StarBackground isDarkMode={isDarkMode}/>}
 
       {/* Main Content */}
       <main>
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ContactSection />
+        <HeroSection isDarkMode={isDarkMode}/>
+        <AboutSection isDarkMode={isDarkMode}/>
+        <SkillsSection isDarkMode={isDarkMode}/>
+        <ProjectsSection isDarkMode={isDarkMode}/>
+        <ContactSection isDarkMode={isDarkMode}/>
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer isDarkMode={isDarkMode}/>
     </div>
   );
 };

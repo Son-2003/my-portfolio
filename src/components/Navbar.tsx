@@ -40,14 +40,14 @@ export const Navbar = ({ isDarkMode, toggleTheme }: NavbarProps) => {
 
   return (
     <nav
-      className={`bg-white fixed w-full flex items-center justify-center duration-300 z-40 ${
+      className={`${isDarkMode ? "bg-black":"bg-white"} fixed w-full flex items-center justify-center z-40 ${
         isScrolled ? "py-5" : "py-8"
       }`}
     >
       <div className="pl-5 container flex items-center justify-between ">
         <a href="#hero" className="text-xl font-bold">
-          <span className="relative z-10">
-            DucSon
+          <span className={`relative z-10 ${isDarkMode ? "text-white":"text-black"}`} >
+            DucSon 
             <span className="text-orange-500"> Portfolio</span>
           </span>
         </a>
@@ -58,7 +58,7 @@ export const Navbar = ({ isDarkMode, toggleTheme }: NavbarProps) => {
             <a
               href={item.href}
               key={key}
-              className="text-black hover:text-orange-500 transition-colors duration-300"
+              className={`${isDarkMode ? "text-white":"text-black"} hover:text-orange-500 transition-colors duration-300`}
             >
               {item.name}
             </a>
