@@ -25,11 +25,11 @@ const projects = [
   },
   {
     id: 3,
-    title: "E-commerce UI",
+    title: "E-commerce Web",
     description:
-      "Modern and responsive e-commerce user interface built with React and Redux.",
+      "Full-stack e-commerce platform using ReactJS, Redux, Spring Boot RESTful APIs, PostgreSQL, and integrated payment gateway.",
     image: "/projects/project3.png",
-    tags: ["React", "Redux"],
+    tags: ["React", "Redux", "SpringBoot", "Postgres"],
     demoUrl: "https://ecommerce.reasvn.site/",
     githubUrl: "https://github.com/Son-2003/e-commerse",
   },
@@ -86,38 +86,37 @@ export const ProjectsSection = ({ isDarkMode }: ProjectsSectionProps) => {
 
                 <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
                 <p className="text-sm mb-4">{project.description}</p>
-                
               </div>
 
               <div className="flex space-x-3 mt-auto p-6">
-                  {project.id === 1 ? (
-                    <>
-                      <a
-                        href="/reas-mobile.apk"
-                        download
-                        className="hover:text-orange-500 transition-colors duration-300"
-                      >
-                        <BsAndroid2 size={20} />
-                      </a>
-                    </>
-                  ) : (
-                    <>
-                      <a
-                        href={project.demoUrl}
-                        className="hover:text-orange-500 transition-colors duration-300"
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                    </>
-                  )}
+                {project.id === 1 ? (
+                  <>
+                    <a
+                      href="/reas-mobile.apk"
+                      download
+                      className="hover:text-orange-500 transition-colors duration-300"
+                    >
+                      <BsAndroid2 size={20} />
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <a
+                      href={project.demoUrl}
+                      className="hover:text-orange-500 transition-colors duration-300"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  </>
+                )}
 
-                  <a
-                    href={project.githubUrl}
-                    className="hover:text-orange-500 transition-colors duration-300"
-                  >
-                    <Github size={20} />
-                  </a>
-                </div>
+                <a
+                  href={project.githubUrl}
+                  className="hover:text-orange-500 transition-colors duration-300"
+                >
+                  <Github size={20} />
+                </a>
+              </div>
             </div>
           ))}
         </div>
