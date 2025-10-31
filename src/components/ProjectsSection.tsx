@@ -20,7 +20,7 @@ const projects = [
       "A web platform for restaurant reservations, featuring secure APIs, real-time booking, and admin management tools.",
     image: "/projects/project2.jpg",
     tags: ["React", "SpringBoot", "MySQL"],
-    demoUrl: "https://skedeat.site/",
+    demoUrl: "https://skedeat.vercel.app/",
     githubUrl: "https://github.com/Son-2003/restaurant-booking-platform-be",
   },
   {
@@ -32,6 +32,26 @@ const projects = [
     tags: ["React", "Redux", "SpringBoot", "Postgres"],
     demoUrl: "https://ecommerce.reasvn.site/",
     githubUrl: "https://github.com/Son-2003/e-commerse",
+  },
+  {
+    id: 4,
+    title: "VN History AI",
+    description:
+      "Explore 4000 years of Vietnamese history through an interactive timeline and notable historical figures with modern UI and smooth animations powered by AI.",
+    image: "/projects/project4.jpg",
+    tags: ["NextJS", "TailWindCSS", "TypeScript"],
+    demoUrl: "https://mindx.history.reasvn.site/",
+    githubUrl: "https://github.com/Son-2003/VN-history-AI",
+  },
+  {
+    id: 4,
+    title: "Movie Trailer",
+    description:
+      "A modern Netflix-inspired Movie Web Application built with React and Vite. Users can browse movies, watch trailers, and explore detailed information about their favorite films through an intuitive and responsive interface.",
+    image: "/projects/project5.jpg",
+    tags: ["React", "TailWindCSS", "Vite"],
+    demoUrl: "https://movie-trailer-sigma.vercel.app/",
+    githubUrl: "https://github.com/Son-2003/movie-trailer",
   },
 ];
 
@@ -104,6 +124,8 @@ export const ProjectsSection = ({ isDarkMode }: ProjectsSectionProps) => {
                     <a
                       href={project.demoUrl}
                       className="hover:text-orange-500 transition-colors duration-300"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <ExternalLink size={20} />
                     </a>
@@ -113,6 +135,8 @@ export const ProjectsSection = ({ isDarkMode }: ProjectsSectionProps) => {
                 <a
                   href={project.githubUrl}
                   className="hover:text-orange-500 transition-colors duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Github size={20} />
                 </a>
