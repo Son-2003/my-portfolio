@@ -39,12 +39,22 @@ const projects = [
     description:
       "Explore 4000 years of Vietnamese history through an interactive timeline and notable historical figures with modern UI and smooth animations powered by AI.",
     image: "/projects/project4.jpg",
-    tags: ["NextJS", "TailWindCSS", "TypeScript"],
+    tags: ["NextJS", "TailWindCSS", "TypeScript", "OpenAI"],
     demoUrl: "https://mindx.history.reasvn.site/",
     githubUrl: "https://github.com/Son-2003/VN-history-AI",
   },
   {
-    id: 4,
+    id: 5,
+    title: "Psychology AI",
+    description:
+      "An AI-driven mental health support app built with Next.js, TypeScript, and TailwindCSS, using the OpenAI API to analyze emotions and provide empathetic, personalized guidance.",
+    image: "/projects/project6.jpg",
+    tags: ["NextJS", "TailWindCSS", "TypeScript", "OpenAI"],
+    demoUrl: "https://psychology-ai-green.vercel.app/",
+    githubUrl: "https://github.com/Son-2003/Psychology_AI.git",
+  },
+  {
+    id: 6,
     title: "Movie Trailer",
     description:
       "A modern Netflix-inspired Movie Web Application built with React and Vite. Users can browse movies, watch trailers, and explore detailed information about their favorite films through an intuitive and responsive interface.",
